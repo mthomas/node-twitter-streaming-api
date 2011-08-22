@@ -1,1 +1,7 @@
 A sample of using the twitter streaming API with Node.js.
+
+
+Dependancies:
+
+* underscore
+* cli

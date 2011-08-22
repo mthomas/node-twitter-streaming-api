@@ -2,8 +2,9 @@ http = require('http')
 Buffer = require('buffer').Buffer
 EventEmitter = require('events').EventEmitter
 _ = require('underscore')
+cli = require('cli')
 
-options = require('cli').parse
+options = cli.parse
   username: ['u', 'Your twitter username', 'string'],
   password: ['p', 'Your twitter password', 'string'],
   track: ['t', 'The keywords to track', 'string']
