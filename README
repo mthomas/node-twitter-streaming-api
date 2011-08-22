@@ -1,7 +1,11 @@
 A sample of using the twitter streaming API with Node.js.
 
 
-Dependancies:
+Dependencies:
 
 * underscore
 * cli
+
+To run:
+
+coffee twitter.coffee -u YOUR_TWITTER_USERNAME -p YOUR_TWITTER_PASSWORD -t comma,separated,words,to,track
