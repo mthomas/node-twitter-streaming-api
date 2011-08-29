@@ -1,11 +1,9 @@
-A sample of using the twitter streaming API with Node.js.
+A sample of using the twitter streaming API with Node.js.  Written in Coffeescript.  
 
-
-Dependencies:
-
-* underscore
-* cli
+Uses underscore, cli, and line-parser.
 
 To run:
 
-coffee twitter.coffee -u YOUR_TWITTER_USERNAME -p YOUR_TWITTER_PASSWORD -t comma,separated,words,to,track
+* npm install coffee-script -g
+* npm install
+* coffee twitter.coffee -u YOUR_TWITTER_USERNAME -p YOUR_TWITTER_PASSWORD -t comma,separated,words,to,track
