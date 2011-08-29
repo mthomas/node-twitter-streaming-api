@@ -2,24 +2,7 @@ http = require('http')
 Buffer = require('buffer').Buffer
 EventEmitter = require('events').EventEmitter
 _ = require('underscore')
-
-# Turns group of chunks into a group of lines
-# emits event 'line'
-class LineParser extends EventEmitter
-  constructor: () ->
-    @buffer = ''
-
-  handleChunk: (chunk) ->
-    @buffer += chunk
-    if @buffer.indexOf('\n') != -1
-      lines = @buffer.split('\n')
-      if lines.length == 1
-        @emit 'line', lines[0]
-        @buffer = ''
-      else
-        _(lines).chain().first(lines.length-1).each (line) =>
-          @emit 'line', line
-        @buffer = _.last(lines);
+LineParser = require('line-parser')
 
 class TwitterStream extends EventEmitter
   constructor: (@options) ->
@@ -42,7 +25,7 @@ class TwitterStream extends EventEmitter
       response.setEncoding 'utf8'
 
       response.on 'data', (chunk) =>
-        lineParser.handleChunk chunk
+        lineParser.chunk chunk
 
   basicAuth: (user, pass) ->
     return "Basic " + new Buffer(user + ":" + pass).toString('base64')

@@ -15,4 +15,11 @@ streamer = new TwitterStream(options)
 
 streamer.on 'tweet', (tweetText) ->
   tweet = JSON.parse(tweetText)
-  console.log tweet.user.screen_name + ': ' + tweet.text
+  if tweet.text?
+    console.log tweet.user.screen_name + ': ' + tweet.text
+  else if tweet.limit?
+    console.log tweetText
+  else
+    console.log 'ERROR'
+    console.log tweetText
+    throw 'unknown tweet type'

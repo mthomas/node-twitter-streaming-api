@@ -12,3 +12,5 @@ logs
 results
 
 .idea
+
+node_modules
