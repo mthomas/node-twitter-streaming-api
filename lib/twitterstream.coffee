@@ -1,4 +1,4 @@
-http = require('http')
+https = require('https')
 Buffer = require('buffer').Buffer
 EventEmitter = require('events').EventEmitter
 _ = require('underscore')
@@ -17,11 +17,10 @@ class TwitterStream extends EventEmitter
 
     options =
       host: 'stream.twitter.com',
-      port: 80,
       path: '/1/statuses/filter.json?track=' + @options.track
       headers: headers
 
-    request = http.get options, (response) =>
+    request = https.get options, (response) =>
       response.setEncoding 'utf8'
 
       response.on 'data', (chunk) =>
